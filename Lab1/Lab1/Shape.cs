@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    internal class Shape
+    abstract internal class Shape
     {
+        public int red, green, blue;
+        public int oldX, oldY;
         public Shape()
         {
 
         }
 
-        public void DrawColoredShape()
-        {
-
-        }
+        public abstract void DrawColoredShape(Graphics g, Panel panel1, int x, int y, Bitmap bm);
     }
 }

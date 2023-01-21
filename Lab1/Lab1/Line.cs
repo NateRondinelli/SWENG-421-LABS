@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Lab1
 {
@@ -13,9 +14,13 @@ namespace Lab1
 
         }
 
-        public new void DrawColoredShape()
+        public override void DrawColoredShape(Graphics g, Panel panel1, int x, int y, Bitmap bm)
         {
+            //Graphics g = panel1.CreateGraphics();
 
+            g.DrawImage(bm, 0, 0);
+            Pen pen = new Pen(Color.FromArgb(255, red, green, blue));
+            g.DrawLine(pen, oldX, oldY, x, y);
         }
     }
 }
