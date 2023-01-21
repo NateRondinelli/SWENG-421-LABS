@@ -49,3 +49,21 @@ C:\Users\Christopher\Desktop\Swng 421 Local Repo\Nother Folder\SWENG-421-LABS\La
 C:\Users\Christopher\Desktop\Swng 421 Local Repo\Nother Folder\SWENG-421-LABS\Lab1\Lab1\bin\Debug\net6.0-windows\Lab1.pdb
 C:\Users\Christopher\Desktop\Swng 421 Local Repo\Nother Folder\SWENG-421-LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.genruntimeconfig.cache
 C:\Users\Christopher\Desktop\Swng 421 Local Repo\Nother Folder\SWENG-421-LABS\Lab1\Lab1\obj\Debug\net6.0-windows\ref\Lab1.dll
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\bin\Debug\net6.0-windows\Lab1.exe
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\bin\Debug\net6.0-windows\Lab1.deps.json
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\bin\Debug\net6.0-windows\Lab1.runtimeconfig.json
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\bin\Debug\net6.0-windows\Lab1.dll
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\bin\Debug\net6.0-windows\Lab1.pdb
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.csproj.AssemblyReference.cache
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.Form1.resources
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.csproj.GenerateResource.cache
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.AssemblyInfoInputs.cache
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.AssemblyInfo.cs
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.csproj.CoreCompileInputs.cache
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.dll
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\refint\Lab1.dll
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.pdb
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.genruntimeconfig.cache
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\ref\Lab1.dll
+C:\Users\nater\Downloads\School\Penn State\2023 Spring\SWENG  421\SWENG 421 LABS\Lab1\Lab1\obj\Debug\net6.0-windows\Lab1.Properties.Resources.resources

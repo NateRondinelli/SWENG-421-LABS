@@ -4,14 +4,18 @@ namespace Lab1
     {
         Shape shape = new Line();
         //int red, green, blue;
-        public Graphics g = new );
+        Graphics g;
+        Graphics gShape;
         //int oldX, oldY;
         bool drawing = false;
         public Bitmap bm;
+
         public Form1()
         {
             InitializeComponent();
             bm = new Bitmap(panel1.Width, panel1.Height);
+            g = Graphics.FromImage(bm);
+            gShape = Graphics.FromImage(bm);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -23,10 +27,12 @@ namespace Lab1
         {
             drawing = false;
             shape.DrawColoredShape(g,panel1, e.X, e.Y, bm );
-            
-            bm = new Bitmap(panel1.Width, panel1.Height);
+
+            //bm = new Bitmap(panel1.Width, panel1.Height, g);
+            panel1.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, panel1.Width,panel1.Height));
             g = Graphics.FromImage(bm);
             g.DrawImage(bm, 0, 0);
+            //panel1.BackgroundImage = bm;
 
         }
 
@@ -34,11 +40,19 @@ namespace Lab1
         {
             if (drawing)
             {
-                //panel1.Invalidate();
+
+                //panel1.Refresh();
+                //g = Graphics.FromImage(bm);
+                g = panel1.CreateGraphics();
+                g.DrawImage(bm, 0, 0);
+                shape.DrawColoredShape(gShape, panel1, e.X, e.Y, bm);
+
+
+                //gShape.Invalidate();
+                //g.DrawImage(bm, 0, 0);
                 
-                shape.DrawColoredShape(g, panel1, e.X, e.Y, bm);
             }
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,6 +87,7 @@ namespace Lab1
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            panel1.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, panel1.Width, panel1.Height));
             shape.oldX = e.X;
             shape.oldY = e.Y;
             shape.red = trackBar1.Value;

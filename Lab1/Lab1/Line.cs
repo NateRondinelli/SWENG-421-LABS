@@ -16,9 +16,10 @@ namespace Lab1
 
         public override void DrawColoredShape(Graphics g, Panel panel1, int x, int y, Bitmap bm)
         {
-            //Graphics g = panel1.CreateGraphics();
+            g = panel1.CreateGraphics();
 
-            g.DrawImage(bm, 0, 0);
+            //g.DrawImage(bm, 0, 0);
+            
             Pen pen = new Pen(Color.FromArgb(255, red, green, blue));
             g.DrawLine(pen, oldX, oldY, x, y);
         }
