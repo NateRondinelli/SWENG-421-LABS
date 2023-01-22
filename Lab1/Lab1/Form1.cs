@@ -3,19 +3,23 @@ namespace Lab1
     public partial class Form1 : Form
     {
         Shape shape = new Line();
-        //int red, green, blue;
         Graphics g;
         Graphics gShape;
-        //int oldX, oldY;
         bool drawing = false;
         public Bitmap bm;
+        Bitmap bmShape;
+        Bitmap bm3;
 
         public Form1()
         {
             InitializeComponent();
-            bm = new Bitmap(panel1.Width, panel1.Height);
-            g = Graphics.FromImage(bm);
-            gShape = Graphics.FromImage(bm);
+            
+            g = panel1.CreateGraphics();
+            gShape = panel1.CreateGraphics();
+            bm = new Bitmap(panel1.Width, panel1.Height, g);
+            bmShape = new Bitmap(panel1.Width, panel1.Height, g);
+            g.Clear(Color.White);
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -25,31 +29,33 @@ namespace Lab1
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-            drawing = false;
-            shape.DrawColoredShape(g,panel1, e.X, e.Y, bm );
+            
+            
+            using (Graphics g = Graphics.FromImage(bm))
+            {
+                shape.DrawColoredShape(g, panel1, e.X, e.Y, bm);
 
-            //bm = new Bitmap(panel1.Width, panel1.Height, g);
-            panel1.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, panel1.Width,panel1.Height));
-            g = Graphics.FromImage(bm);
+            }
+            g = panel1.CreateGraphics();
             g.DrawImage(bm, 0, 0);
-            //panel1.BackgroundImage = bm;
-
+            
+            drawing = false;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (drawing)
             {
-
-                //panel1.Refresh();
-                //g = Graphics.FromImage(bm);
-                g = panel1.CreateGraphics();
-                g.DrawImage(bm, 0, 0);
-                shape.DrawColoredShape(gShape, panel1, e.X, e.Y, bm);
-
-
-                //gShape.Invalidate();
-                //g.DrawImage(bm, 0, 0);
+                Graphics g = panel1.CreateGraphics();
+                
+                using( gShape = Graphics.FromImage(bmShape) )
+                {
+                    gShape.Clear(Color.White);
+                    gShape.DrawImage(bm, 0, 0);
+                    shape.DrawColoredShape(gShape, panel1, e.X, e.Y, bm);
+                    g.DrawImage(bmShape,0,0);
+                }
                 
             }
 
@@ -70,31 +76,40 @@ namespace Lab1
             shape = new Ellipse();
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackBar2_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackBar3_Scroll(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            panel1.DrawToBitmap(bm, new System.Drawing.Rectangle(0, 0, panel1.Width, panel1.Height));
+            
             shape.oldX = e.X;
             shape.oldY = e.Y;
             shape.red = trackBar1.Value;
             shape.green = trackBar2.Value;
             shape.blue = trackBar3.Value;
             drawing = true;
+            
         }
+        
+        
 
+        private void panel1_Resize(object sender, EventArgs e)  // window resize
+        {
+            Graphics g = panel1.CreateGraphics();   // redo g
+            bm3 = new Bitmap(panel1.Width, panel1.Height);  // temp bitmap
+            using( Graphics g3 = Graphics.FromImage(bm3) )  
+            {
+                g3.DrawImage(bm,0,0);   // use the temp while making bigger one
+            }
+            
+            if( panel1.Width > bm.Width || panel1.Height > bm.Height)   // resize if bigger
+            {
+                bm = new Bitmap(panel1.Width, panel1.Height, g);
+                bmShape = new Bitmap(panel1.Width, panel1.Height, g);
+            }
+            g.DrawImage(bm, 0, 0);
+            using (Graphics g3 = Graphics.FromImage(bm))    // redraw the stuff
+            {
+                g3.DrawImage(bm3, 0, 0);
+            }
+        }
     }
 }

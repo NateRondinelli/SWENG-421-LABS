@@ -15,6 +15,6 @@ namespace Lab1
 
         }
 
-        public abstract void DrawColoredShape(Graphics g, Panel panel1, int x, int y, Bitmap bm);
+        public abstract void DrawColoredShape( Graphics g, Panel panel1, int x, int y, Bitmap bm);
     }
 }
