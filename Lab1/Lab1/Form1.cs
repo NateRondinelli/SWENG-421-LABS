@@ -1,14 +1,15 @@
+// Christopher Brennen
+// Nate Rondinelli
+
 namespace Lab1
 {
     public partial class Form1 : Form
     {
         Shape shape = new Line();
-        Graphics g;
-        Graphics gShape;
-        bool drawing = false;
-        public Bitmap bm;
-        Bitmap bmShape;
-        Bitmap bm3;
+        Graphics g, gShape, g3;
+        bool isDrawing = false;
+        Bitmap bm, bmShape, bm3;
+
 
         public Form1()
         {
@@ -29,18 +30,17 @@ namespace Lab1
             using (Graphics g = Graphics.FromImage(bm))
             {
                 shape.DrawColoredShape(g, e.X, e.Y);
-
             }
             g = panel1.CreateGraphics();
             g.DrawImage(bm, 0, 0);
             
-            drawing = false;
+            isDrawing = false;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             
-            if (drawing)    // tracks mouse hold
+            if (isDrawing)    // tracks mouse hold
             {
                 Graphics g = panel1.CreateGraphics();
                 
@@ -51,9 +51,7 @@ namespace Lab1
                     shape.DrawColoredShape(gShape, e.X, e.Y);
                     g.DrawImage(bmShape,0,0);
                 }
-                
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,26 +77,25 @@ namespace Lab1
             shape.red = trackBar1.Value;
             shape.green = trackBar2.Value;
             shape.blue = trackBar3.Value;
-            drawing = true;
-            
+            isDrawing = true;
         }
         
         private void panel1_Resize(object sender, EventArgs e)  // window resize
         {
-            Graphics g = panel1.CreateGraphics();   // redo g
+            g = panel1.CreateGraphics();                    // redo g
             bm3 = new Bitmap(panel1.Width, panel1.Height);  // temp bitmap
-            using( Graphics g3 = Graphics.FromImage(bm3) )  
+            using(g3 = Graphics.FromImage(bm3) )  
             {
                 g3.DrawImage(bm,0,0);   // use the temp while making bigger one
             }
             
             if( panel1.Width > bm.Width || panel1.Height > bm.Height)   // resize if bigger
             {
-                bm = new Bitmap(panel1.Width, panel1.Height, g);
-                bmShape = new Bitmap(panel1.Width, panel1.Height, g);
+                bm = new Bitmap(Math.Max(panel1.Width, bm.Width), Math.Max(panel1.Height, bm.Height), g);
+                bmShape = new Bitmap(Math.Max(panel1.Width, bmShape.Width), Math.Max(panel1.Height, bmShape.Height), g);
             }
             g.DrawImage(bm, 0, 0);
-            using (Graphics g3 = Graphics.FromImage(bm))    // redraw the stuff
+            using (g3 = Graphics.FromImage(bm))    // redraw the content
             {
                 g3.DrawImage(bm3, 0, 0);
             }
