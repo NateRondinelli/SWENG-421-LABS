@@ -13,9 +13,9 @@ namespace Lab1
 
         }
 
-        public override void DrawColoredShape(Graphics g, Panel panel1, int x, int y, Bitmap bm)
+        public override void DrawColoredShape(Graphics g, int x, int y)
         {
-            //g = panel1.CreateGraphics();
+            
             int oldX2, oldY2;
             if (x < oldX)
             {

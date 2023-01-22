@@ -14,6 +14,7 @@ namespace Lab1
         {
             InitializeComponent();
             
+            // instantiation
             g = panel1.CreateGraphics();
             gShape = panel1.CreateGraphics();
             bm = new Bitmap(panel1.Width, panel1.Height, g);
@@ -22,18 +23,12 @@ namespace Lab1
             
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-            
-            
+            // draws to background graphics upon completing draw
             using (Graphics g = Graphics.FromImage(bm))
             {
-                shape.DrawColoredShape(g, panel1, e.X, e.Y, bm);
+                shape.DrawColoredShape(g, e.X, e.Y);
 
             }
             g = panel1.CreateGraphics();
@@ -45,15 +40,15 @@ namespace Lab1
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             
-            if (drawing)
+            if (drawing)    // tracks mouse hold
             {
                 Graphics g = panel1.CreateGraphics();
                 
-                using( gShape = Graphics.FromImage(bmShape) )
+                using( gShape = Graphics.FromImage(bmShape) )   // uses a bitmap for just the new shape
                 {
-                    gShape.Clear(Color.White);
+                    gShape.Clear(Color.White);  // clears and redraws background bitmap
                     gShape.DrawImage(bm, 0, 0);
-                    shape.DrawColoredShape(gShape, panel1, e.X, e.Y, bm);
+                    shape.DrawColoredShape(gShape, e.X, e.Y);
                     g.DrawImage(bmShape,0,0);
                 }
                 
@@ -76,10 +71,9 @@ namespace Lab1
             shape = new Ellipse();
         }
 
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            
+            // sets current values in order to draw
             shape.oldX = e.X;
             shape.oldY = e.Y;
             shape.red = trackBar1.Value;
@@ -89,8 +83,6 @@ namespace Lab1
             
         }
         
-        
-
         private void panel1_Resize(object sender, EventArgs e)  // window resize
         {
             Graphics g = panel1.CreateGraphics();   // redo g

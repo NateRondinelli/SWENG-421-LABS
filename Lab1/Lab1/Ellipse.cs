@@ -13,10 +13,10 @@ namespace Lab1
 
         }
 
-        public override void DrawColoredShape(Graphics g, Panel panel1, int x, int y, Bitmap bm)
+        public override void DrawColoredShape(Graphics g, int x, int y)
         {
             int oldX2, oldY2;   
-            //g = panel1.CreateGraphics();
+            
             if (x < oldX)
             {
                 int t = x;
@@ -39,7 +39,7 @@ namespace Lab1
             }
 
             Pen pen = new Pen(Color.FromArgb(255, red, green, blue));
-            //g.DrawEllipse(pen, oldX, oldY, x, y);
+            
             g.DrawEllipse(pen, new RectangleF(oldX2, oldY2, x - oldX2, y - oldY2));
         }
     }
